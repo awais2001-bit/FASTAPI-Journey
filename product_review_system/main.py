@@ -1,7 +1,5 @@
-from itertools import product
 from typing import Annotated, Optional
 from pydantic import BaseModel,Field
-from sqlalchemy import Float
 from sqlalchemy.orm import Session
 from fastapi import FastAPI, Depends, HTTPException, Path, Body
 from starlette import status
@@ -120,3 +118,5 @@ def del_specific_review(db: db_dependency, review_id: int,product_id: int):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     db.delete(deleted_review)
     db.commit()
+
+
